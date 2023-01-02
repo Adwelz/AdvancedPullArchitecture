@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ChatBasicPullFX" />
+        <module name="PushArchitecture" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ChatBasicPullFX" target="18" />
+      <module name="PushArchitecture" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>

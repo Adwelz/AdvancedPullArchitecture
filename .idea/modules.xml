@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ChatBasicPullFX.iml" filepath="$PROJECT_DIR$/ChatBasicPullFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushArchitecture.iml" filepath="$PROJECT_DIR$/PushArchitecture.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,7 @@
 package com.example.chatbasicpullfx.Client;
 
+import com.example.chatbasicpullfx.Server.Connection;
+import com.example.chatbasicpullfx.Server.ConnectionImpl;
 import com.example.chatbasicpullfx.Server.Dialogue;
 import com.example.chatbasicpullfx.Shared.Message;
 import com.example.chatbasicpullfx.Shared.User;
@@ -15,29 +17,31 @@ public class model {
 
     private static model instance;
     Dialogue dialogue;
+    Connection connection;
     private User currentUser;
     private User adressee;
 
     private model(){
         try {
-            dialogue = (Dialogue) Naming.lookup("rmi://localhost:1099/Dialogue");
+            connection = (Connection) Naming.lookup("rmi://localhost:1099/Connection");
+            dialogue = (Dialogue) Naming.lookup("rmi://localhost:1099/Dialogue"+currentUser.getName());
         } catch (MalformedURLException | RemoteException | NotBoundException e) {
             e.printStackTrace();
         }
     }
 
     void sendMessage(String msg) throws RemoteException {
-        dialogue.sendMessage(currentUser,adressee,msg);
+        dialogue.sendMessage(adressee,msg);
     }
 
     void disconnectUser() throws RemoteException {
-        dialogue.disconnect(currentUser);
+        connection.disconnect(currentUser);
     }
 
     public boolean connectUser(String userName) {
         try{
             currentUser = new User(userName);
-            if(dialogue.connect(currentUser)){
+            if(connection.connect(currentUser)){
                 return true;
             }
 

@@ -13,12 +13,12 @@ public class Server {
             LocateRegistry.createRegistry(1099);
 
             // component instanciation and implicit activation
-            DialogueImpl DialogueComponent = new DialogueImpl();
+            ConnectionImpl ConnectionComponent = new ConnectionImpl();
 
-            System.out.println(DialogueComponent.getRef().remoteToString());
+            System.out.println(ConnectionComponent.getRef().remoteToString());
 
             //publication of component reference in the registry
-            Naming.rebind("Dialogue", DialogueComponent);
+            Naming.rebind("Connection", ConnectionComponent);
 
             System.out.println("Serveur actif");
 
